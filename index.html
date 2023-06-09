@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Logical Numbers</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+
+    .calculator {
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 20px;
+      margin-bottom: 40px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #333;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .input-group {
+      margin-bottom: 10px;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    .button-wrapper {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .button-wrapper button {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .result-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    .result-table th,
+    .result-table td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .result-table th {
+      background-color: #f2f2f2;
+      color: #333;
+    }
+
+    @media screen and (max-width: 600px) {
+      .calculator {
+        margin-bottom: 20px;
+      }
+
+      .input-group input {
+        font-size: 16px;
+      }
+
+      .button-wrapper {
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <h2>Конкулятор 1</h2>
+    <div class="input-group">
+      <label for="input1_1">Число 1</label>
+      <input type="number" id="input1_1" placeholder="Число 1">
+    </div>
+    <div class="input-group">
+      <label for="input1_2">Число 2</label>
+      <input type="number" id="input1_2" placeholder="Число 2">
+    </div>
+    <div class="input-group">
+      <label for="input1_3">Число 3</label>
+      <input type="number" id="input1_3" placeholder="Число 3">
+    </div>
+    <div class="input-group">
+      <label for="input1_4">Число 4</label>
+      <input type="number" id="input1_4" placeholder="Число 4">
+    </div>
+    <div class="input-group">
+      <label for="input1_5">Число 5</label>
+      <input type="number" id="input1_5" placeholder="Число 5">
+    </div>
+    <div class="button-wrapper">
+      <button onclick="calculate(1)">Равно</button>
+    </div>
+    <table id="resultTable1" class="result-table"></table>
+  </div>
+
+  <div class="calculator">
+    <h2>Конкулятор 2</h2>
+    <div class="input-group">
+      <label for="input2_1">Число 1</label>
+      <input type="number" id="input2_1" placeholder="Число 1">
+    </div>
+    <div class="input-group">
+      <label for="input2_2">Число 2</label>
+      <input type="number" id="input2_2" placeholder="Число 2">
+    </div>
+    <div class="input-group">
+      <label for="input2_3">Число 3</label>
+      <input type="number" id="input2_3" placeholder="Число 3">
+    </div>
+    <div class="input-group">
+      <label for="input2_4">Число 4</label>
+      <input type="number" id="input2_4" placeholder="Число 4">
+    </div>
+    <div class="input-group">
+      <label for="input2_5">Число 5</label>
+      <input type="number" id="input2_5" placeholder="Число 5">
+    </div>
+    <div class="button-wrapper">
+      <button onclick="calculate(2)">Равно</button>
+    </div>
+    <table id="resultTable2" class="result-table"></table>
+  </div>
+
+  <div class="calculator">
+    <h2>Конкулятор 3</h2>
+    <div class="input-group">
+      <label for="input3_1">Число 1</label>
+      <input type="number" id="input3_1" placeholder="Число 1">
+    </div>
+    <div class="input-group">
+      <label for="input3_2">Число 2</label>
+      <input type="number" id="input3_2" placeholder="Число 2">
+    </div>
+    <div class="input-group">
+      <label for="input3_3">Число 3</label>
+      <input type="number" id="input3_3" placeholder="Число 3">
+    </div>
+    <div class="input-group">
+      <label for="input3_4">Число 4</label>
+      <input type="number" id="input3_4" placeholder="Число 4">
+    </div>
+    <div class="input-group">
+      <label for="input3_5">Число 5</label>
+      <input type="number" id="input3_5" placeholder="Число 5">
+    </div>
+    <div class="button-wrapper">
+      <button onclick="calculate(3)">Равно</button>
+    </div>
+    <table id="resultTable3" class="result-table"></table>
+  </div>
+
+  <script>
+    function calculate(calculatorId) {
+      var inputIds = [
+        ['input1_1', 'input1_2', 'input1_3', 'input1_4', 'input1_5'],
+        ['input2_1', 'input2_2', 'input2_3', 'input2_4', 'input2_5'],
+        ['input3_1', 'input3_2', 'input3_3', 'input3_4', 'input3_5']
+      ];
+      var inputs = inputIds[calculatorId - 1].map(id => parseFloat(document.getElementById(id).value));
+      var result = calculateLogicalNumber(inputs);
+      var resultTable = document.getElementById('resultTable' + calculatorId);
+      resultTable.innerHTML = '';
+      var row = resultTable.insertRow(0);
+      var cell = row.insertCell(0);
+      cell.innerHTML = 'Результат:';
+      cell = row.insertCell(1);
+      cell.innerHTML = result;
+    }
+
+    function calculateLogicalNumber(numbers) {
+      // Здесь можно использовать свой алгоритм для расчета
+
+      // В данном примере просто находим среднее арифметическое введенных чисел
+      var sum = numbers.reduce((acc, num) => acc + num, 0);
+      var average = sum / numbers.length;
+      return average.toFixed(2);
+    }
+  </script>
+</body>
+</html>
